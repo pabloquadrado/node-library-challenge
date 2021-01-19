@@ -14,7 +14,7 @@ module.exports = {
             const bookExist = user.bookmarks.find(book => book._id == bookId);
 
             if (bookExist) {
-                return response.status(400).json({ error: true, message: 'Book already bookmarked.'});
+                return response.status(400).json({ error: true, message: 'Book already bookmarked for this user.'});
             }
 
             user.bookmarks.push(book);
@@ -34,6 +34,12 @@ module.exports = {
             const { userId, bookId } = request.body;
 
             const user = await User.findById(userId).populate('bookmarks');
+            
+            const bookExist = user.bookmarks.find(book => book._id == bookId);
+            
+            if (!bookExist) {
+                return response.status(400).json({ error: true, message: 'Book is not on user bookmark list.'});
+            }
 
             user.bookmarks.pull({ _id: bookId });
 

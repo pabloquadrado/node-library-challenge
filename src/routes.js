@@ -20,7 +20,7 @@ router.get('/users/:id', UserHandler.getById);
 router.put('/users/:id', UserHandler.update);
 router.delete('/users/:id', UserHandler.delete);
 
-router.post('/bookmarks', BookmarkHandler.add);
-router.delete('/bookmarks', BookmarkHandler.delete);
+router.post('/bookmark', BookmarkHandler.add);
+router.delete('/bookmark', BookmarkHandler.delete);
 
 module.exports = router;

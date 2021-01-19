@@ -26,8 +26,7 @@ const UserSchema = mongoose.Schema({
         ref: 'Book'
     }]
 }, {
-    versionKey: false,
-    timestamps: true
+    versionKey: false
 });
 
 UserSchema.plugin(mongoosePaginate);

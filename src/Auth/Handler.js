@@ -8,6 +8,10 @@ module.exports = {
 
         const user = await User.findOne({ email });
 
+        if (!user) {
+            return response.status(404).json({ error: true, message: 'User not found.' });
+        }
+
         if (!bcrypt.compareSync(password, user.password)) {
             return response.status(400).json({ error: true, message: 'Invalid password.' });
         }
@@ -22,19 +26,19 @@ module.exports = {
             return next();
         }
 
-        // if (!request.headers.authorization) {
-        //     return response.status(401).send();
-        // }
+        if (!request.headers.authorization) {
+            return response.status(401).send();
+        }
 
-        // const token = request.headers.authorization.split(' ')[1];
+        const token = request.headers.authorization.split(' ')[1];
 
-        // try {
+        try {
 
-        //     jwt.verify(token, process.env.AUTH_SECRET);
+            jwt.verify(token, process.env.AUTH_SECRET);
         
-        // } catch (error) {
-        //     return response.status(401).send();
-        // }
+        } catch (error) {
+            return response.status(401).send();
+        }
 
         return next();
     }

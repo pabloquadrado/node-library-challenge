@@ -1,0 +1,22 @@
+{
+    "authUser": {
+        "name": "Test User",
+        "age": 22,
+        "email":  "auth@test.com.br",
+        "password": "1234",
+        "phones": "51999999999"
+    },
+    "book": {
+        "title": "Test Book",
+        "isbn": "978-3-16-148410-0",
+        "category": "Test Category",
+        "year": 2021
+    },
+    "user": {
+        "name": "Test User",
+        "age": 22,
+        "email":  "user@test.com.br",
+        "password": "1234",
+        "phones": "51999999999"
+    }
+}

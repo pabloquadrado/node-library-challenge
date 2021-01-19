@@ -19,8 +19,7 @@ const BookSchema = mongoose.Schema({
         required: '{PATH} is required'
     }
 }, {
-    versionKey: false,
-    timestamps: true
+    versionKey: false
 });
 
 BookSchema.plugin(mongoosePaginate);

@@ -1,5 +1,4 @@
 const Book = require('./Model');
-const User = require('../User/Model');
 
 module.exports = {
     create: async (request, response) => {
@@ -38,7 +37,7 @@ module.exports = {
 
             const { id } = request.params;
     
-            return response.json(await User.findByIdAndUpdate(id, request.body, { new: true }));
+            return response.json(await Book.findByIdAndUpdate(id, request.body, { new: true }));
         
         } catch (error) {
             return response.status(400).json({ error: true, message: error.message });
