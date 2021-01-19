@@ -19,7 +19,7 @@ describe('Books', () => {
             "phones": "51999999999"
         }
 
-        await UserModel.findOneAndUpdate({}, userData, { upsert: true, new: true });
+        await UserModel.create(userData);
         
         const authResponse = await request(app)
             .post('/auth')
@@ -35,6 +35,8 @@ describe('Books', () => {
     });
 
     afterAll(async () => {
+        await UserModel.deleteMany({});
+
         mongoose.connection.close();
         app.close();
     });

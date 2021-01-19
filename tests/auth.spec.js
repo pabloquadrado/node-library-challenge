@@ -19,13 +19,13 @@ describe('Auth', () => {
             "phones": "51999999999"
         }
 
-        user = await User.findOneAndUpdate({}, userData, { upsert: true, new: true });
+        user = await User.create(userData);
 
         return done();
     });
 
     afterAll(async () => {
-        await UserModel.deleteMany({});
+        await User.deleteMany({});
 
         mongoose.connection.close();
         app.close();
