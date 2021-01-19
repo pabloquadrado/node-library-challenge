@@ -1,10 +1,8 @@
-<h1 align="center"><strong>API VUTTR</strong></h1>
+<h1 align="center"><strong>Desafio South System</strong></h1>
 
 ## 💬 Sobre
 
 A aplicação foi desenvolvida para gestão de livros e usuários de uma biblioteca. 
-
-*Desafio proposta pela South System.
 
 ## 📋 Tecnologias Utilizadas
 
